@@ -662,12 +662,10 @@ section {
     align-items: center;
     padding: 60px 0;
     border-bottom: 1px solid #f1f5f9;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
 }
 
 .service-item:hover {
-    padding-left: 30px;
     background: #ffffff;
     box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
     border-radius: 20px;
