@@ -1,3 +1,4 @@
+
 :root {
     --bg-color: #fcfdfe;
     --text-color: #0f172a;
@@ -701,7 +702,6 @@ section {
     color: #ffffff;
     border-radius: 50%;
     box-shadow: 0 15px 30px rgba(14, 165, 233, 0.3);
-    transform: rotate(10deg) scale(1.1);
 }
 
 .service-text h3 {
