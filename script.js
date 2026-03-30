@@ -11,11 +11,11 @@ function initParticles() {
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#00f2ff" },
+            "color": { "value": "#0ea5e9" },
             "shape": { "type": "circle" },
             "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
             "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
-            "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.2, "width": 1 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.2, "width": 1 },
             "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
@@ -34,14 +34,14 @@ function initParticles() {
 function initHeroAnimations() {
     const tl = gsap.timeline();
 
-    tl.from(".logo", { y: -50, opacity: 0, duration: 1, ease: "power4.out" })
-      .from(".nav-links li", { y: -50, opacity: 0, stagger: 0.1, duration: 0.8 }, "-=0.5")
-      .from(".nav-cta", { scale: 0, opacity: 0, duration: 0.5 }, "-=0.3")
-      .from(".glitch", { opacity: 0, x: -30, duration: 0.8 }, "-=0.2")
-      .from("#hero-title", { opacity: 0, y: 30, duration: 1 }, "-=0.5")
-      .from(".hero-description", { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
-      .from(".hero-btns .btn", { opacity: 0, scale: 0.8, stagger: 0.2, duration: 0.8 }, "-=0.5")
-      .from(".scroll-indicator", { opacity: 0, y: 20, duration: 1 }, "-=0.5");
+    tl.from(".logo", { opacity: 0, duration: 1.2, ease: "power3.out" })
+        .from(".nav-links li", { y: -50, opacity: 0, stagger: 0.1, duration: 0.8 }, "-=0.5")
+        .from(".nav-cta", { scale: 0, opacity: 0, duration: 0.5 }, "-=0.3")
+        .from(".hero-text-area .section-tag", { opacity: 0, x: -30, duration: 0.8 }, "-=0.2")
+        .from("#hero-title", { opacity: 0, y: 30, duration: 1 }, "-=0.5")
+        .from(".hero-description", { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
+        .from(".hero-btns .btn", { opacity: 0, scale: 0.8, stagger: 0.2, duration: 0.8 }, "-=0.5")
+        .from(".scroll-indicator", { opacity: 0, y: 20, duration: 1 }, "-=0.5");
 }
 
 // --- 6. Scroll Trigger Animations ---
@@ -114,7 +114,7 @@ function initScrollAnimations() {
     stats.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-target'));
         const countObj = { val: 0 };
-        
+
         gsap.to(countObj, {
             val: target,
             duration: 2,
@@ -122,7 +122,7 @@ function initScrollAnimations() {
                 trigger: stat,
                 start: "top 85%"
             },
-            onUpdate: function() {
+            onUpdate: function () {
                 stat.innerText = Math.floor(countObj.val);
             }
         });
@@ -133,7 +133,7 @@ function initScrollAnimations() {
 function initMobileNav() {
     const toggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (!toggle) return;
 
     toggle.addEventListener('click', () => {
@@ -158,6 +158,8 @@ function initInteractions() {
     const serviceItems = document.querySelectorAll('.service-item');
     const preview = document.getElementById('service-hover-preview');
     const previewImg = preview.querySelector('img');
+
+    if (window.innerWidth <= 768) return; // Disable on mobile
 
     serviceItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
@@ -184,12 +186,14 @@ function initInteractions() {
 
 // --- 9. Data / Images Assignment ---
 function assignAssets() {
-    // Hero
+    // Logo & Hero
+    const navLogo = document.querySelector('.nav-logo-img');
+    if (navLogo) navLogo.src = 'assets/logo.svg';
     if (document.getElementById('hero_robot_img')) document.getElementById('hero_robot_img').src = 'assets/hero_robot_new.png';
 
     // About
     if (document.getElementById('about_main_img')) document.getElementById('about_main_img').src = 'assets/about_main.png';
-    if (document.getElementById('about_sub_img')) document.getElementById('about_sub_img').src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=300'; 
+    if (document.getElementById('about_sub_img')) document.getElementById('about_sub_img').src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=300';
 
     // Projects
     if (document.getElementById('project_img_1')) document.getElementById('project_img_1').src = 'assets/project1.png';
@@ -219,7 +223,7 @@ function initTestimonials() {
     const slides = document.querySelectorAll('.testimonial-slide');
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
-    
+
     if (!track || slides.length === 0) return;
 
     let currentSlide = 0;
