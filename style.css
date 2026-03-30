@@ -666,8 +666,6 @@ section {
 }
 
 .service-item:hover {
-    background: #ffffff;
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
     border-radius: 20px;
     border-bottom-color: transparent;
     z-index: 10;
