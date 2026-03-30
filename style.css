@@ -794,28 +794,7 @@ section {
     letter-spacing: 2px;
 }
 
-#service-hover-preview {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 400px;
-    height: 250px;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(0.8) rotate(-5deg);
-    z-index: 1000;
-    transition: opacity 0.4s, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
-    border: 2px solid var(--primary-neon);
-}
 
-#service-hover-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* --- Projects Grid --- */
 .projects-grid {
@@ -1419,9 +1398,7 @@ section {
         text-align: center;
     }
 
-    #service-hover-preview {
-        display: none !important;
-    }
+
 }
 
 

@@ -153,36 +153,7 @@ function initMobileNav() {
 }
 
 // --- 8. Interactions ---
-function initInteractions() {
-    // Service Hover Reveal Logic
-    const serviceItems = document.querySelectorAll('.service-item');
-    const preview = document.getElementById('service-hover-preview');
-    const previewImg = preview.querySelector('img');
 
-    if (window.innerWidth <= 768) return; // Disable on mobile
-
-    serviceItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const imgSrc = item.getAttribute('data-image');
-            previewImg.src = imgSrc;
-            gsap.to(preview, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
-        });
-
-        item.addEventListener('mousemove', (e) => {
-            // Position the preview near the cursor with a slight offset
-            gsap.to(preview, {
-                left: e.clientX + 20,
-                top: e.clientY + 20,
-                duration: 0.6,
-                ease: "power3.out"
-            });
-        });
-
-        item.addEventListener('mouseleave', () => {
-            gsap.to(preview, { opacity: 0, scale: 0.8, duration: 0.4, ease: "power2.in" });
-        });
-    });
-}
 
 // --- 9. Data / Images Assignment ---
 function assignAssets() {
@@ -263,7 +234,6 @@ window.onload = () => {
     initParticles();
     initScrollAnimations();
     initMobileNav();
-    initInteractions();
     assignAssets();
     initTestimonials();
 };
