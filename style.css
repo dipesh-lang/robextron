@@ -206,7 +206,7 @@ body {
 #particles-js {
     position: fixed;
     inset: 0;
-    z-index: 1; /* Above background but behind content */
+    z-index: 0; /* Above background but behind content */
 }
 
 /* --- Hero --- */
